@@ -742,7 +742,7 @@ SOURCE=.\UserInputDialog.h
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\cedt_kr.rc
+SOURCE=.\cedt_us.rc
 # End Source File
 # Begin Source File
 
