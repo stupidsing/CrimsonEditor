@@ -1645,7 +1645,7 @@ BEGIN
                     8,0,WS_EX_TRANSPARENT
     EDITTEXT        IDC_FILTER_DEFAULT_EXT,447,287,96,14,ES_AUTOHSCROLL,
                     WS_EX_TRANSPARENT
-    CONTROL         "Tab1",IDC_COLORS_PANNEL,"SysTabControl32",WS_TABSTOP,
+    CONTROL         "Tab1",IDC_COLORS_PANEL,"SysTabControl32",WS_TABSTOP,
                     195,464,181,20
     LTEXT           "바탕색:",IDC_BACKGROUND_COLOR_CAPTION,207,493,63,8,0,
                     WS_EX_TRANSPARENT
@@ -1783,7 +1783,7 @@ BEGIN
     LTEXT           "",IDC_TAB_SIZE_BOX,197,7,177,8,SS_SUNKEN
     LTEXT           "",IDC_WORD_WRAP_BOX,199,53,177,8,SS_SUNKEN
     LTEXT           "",IDC_GENERAL_OPTIONS_BOX,199,107,177,8,SS_SUNKEN
-    CONTROL         "Tab1",IDC_FONTS_PANNEL,"SysTabControl32",WS_TABSTOP,7,
+    CONTROL         "Tab1",IDC_FONTS_PANEL,"SysTabControl32",WS_TABSTOP,7,
                     160,177,22
     LTEXT           "- 글꼴이나 크기를 바꾸려면 항목을 더블 클릭하세요",
                     IDC_SCREEN_FONTS_CAPTION,14,188,116,8,0,
