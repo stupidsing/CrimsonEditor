@@ -178,7 +178,7 @@ BOOL CCedtApp::SaveColorSettings()
 void CCedtApp::SetDefaultConfiguration()
 {
 	memset(CCedtView::m_lfScreen, 0x00, sizeof(CCedtView::m_lfScreen));
-	strcpy(CCedtView::m_lfScreen[0].lfFaceName, "Courier New");
+	strcpy(CCedtView::m_lfScreen[0].lfFaceName, "Consolas");
 	strcpy(CCedtView::m_lfScreen[1].lfFaceName, "FixedSys");
 	strcpy(CCedtView::m_lfScreen[2].lfFaceName, "Verdana");
 	strcpy(CCedtView::m_lfScreen[3].lfFaceName, "Arial");
