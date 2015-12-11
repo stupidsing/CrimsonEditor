@@ -70,7 +70,7 @@ void CCedtDoc::OnFileSaveAll()
 
 BOOL CCedtDoc::SaveModified() 
 {
-	if( ! IsModified() ) return TRUE;
+	if( GetByteCount() == 0 || ! IsModified() ) return TRUE;
 
 	CString szPathName = GetPathName();
 	if( IsRemoteFile() ) szPathName = GetFullRemotePathName();
