@@ -32,7 +32,7 @@ void CCedtApp::ApplyFileFilterToFileWindow()
 {
 	CMainFrame * pMainFrame = (CMainFrame *)AfxGetMainWnd();
 	CFileWindow * pFileWindow = (CFileWindow *)pMainFrame->GetFileWindow();
-	pFileWindow->InitFileFilterList( GetComposedFileFilter(), RecalcFilterIndexSkipNull(m_nFilterIndexPannel), CallbackFilterIndexPannel );
+	pFileWindow->InitFileFilterList( GetComposedFileFilter(), RecalcFilterIndexSkipNull(m_nFilterIndexPanel), CallbackFilterIndexPanel );
 }
 
 void CCedtApp::CallbackFilterIndexDialog(INT nFilter)
@@ -40,9 +40,9 @@ void CCedtApp::CallbackFilterIndexDialog(INT nFilter)
 	m_nFilterIndexDialog = RecalcFilterIndexCountAll(nFilter);
 }
 
-void CCedtApp::CallbackFilterIndexPannel(INT nFilter)
+void CCedtApp::CallbackFilterIndexPanel(INT nFilter)
 {
-	m_nFilterIndexPannel = RecalcFilterIndexCountAll(nFilter);
+	m_nFilterIndexPanel = RecalcFilterIndexCountAll(nFilter);
 }
 
 INT CCedtApp::RecalcFilterIndexSkipNull(INT nFilter)

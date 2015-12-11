@@ -392,14 +392,14 @@
 #define IDC_LOAD_COLOR_SCHEME_CAPTION   1239
 #define IDC_ASSOC_ASSOCIATED_CAPTION    1240
 #define IDC_COLORS_TAB                  1241
-#define IDC_COLORS_PANNEL               1241
+#define IDC_COLORS_PANEL               1241
 #define IDC_SPECIAL_COLOR_CAPTION       1242
 #define IDC_LEFT_MARGIN_COLOR_CAPTION2  1242
 #define IDC_LEFT_MARGIN_COLOR_CAPTION   1242
 #define IDC_COLOR_SCHEME_LIST           1243
 #define IDC_LOAD_COLOR_SCHEME           1244
 #define IDC_FIND_STRING_MENU            1245
-#define IDC_FONTS_PANNEL                1245
+#define IDC_FONTS_PANEL                1245
 #define IDC_REPLACE_STRING_MENU         1246
 #define IDC_CAPTION                     1246
 #define IDC_RANGE_BKGR_COLOR_CAPTION    1246

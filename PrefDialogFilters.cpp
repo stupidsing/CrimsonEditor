@@ -67,8 +67,8 @@ BOOL CPreferenceDialog::SaveFileFilters()
 	INT nIndexDialog = CCedtApp::m_nFilterIndexDialog;
 	if( ! m_clsFileFilters[nIndexDialog].IsValid() ) CCedtApp::m_nFilterIndexDialog = 0;
 
-	INT nIndexPannel = CCedtApp::m_nFilterIndexPannel;
-	if( ! m_clsFileFilters[nIndexPannel].IsValid() ) CCedtApp::m_nFilterIndexPannel = 0;
+	INT nIndexPanel = CCedtApp::m_nFilterIndexPanel;
+	if( ! m_clsFileFilters[nIndexPanel].IsValid() ) CCedtApp::m_nFilterIndexPanel = 0;
 
 	return TRUE;
 }

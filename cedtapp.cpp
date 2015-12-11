@@ -47,7 +47,7 @@ HCURSOR CCedtApp::m_hCursorRightArrow, CCedtApp::m_hCursorArrowMacro, CCedtApp::
 CFtpAccount CCedtApp::m_clsFtpAccounts[MAX_FTP_ACCOUNT];
 CFileFilter CCedtApp::m_clsFileFilters[MAX_FILE_FILTER];
 INT CCedtApp::m_nFilterIndexDialog = 0;
-INT CCedtApp::m_nFilterIndexPannel = 0;
+INT CCedtApp::m_nFilterIndexPanel = 0;
 
 // html help initialization
 BOOL CCedtApp::m_bHtmlHelpInitialized = FALSE;
@@ -333,7 +333,7 @@ BOOL CCedtApp::InitInstance()
 	CFileWindow * pFileWindow = (CFileWindow *)pMainFrame->GetFileWindow();
 
 	pFileWindow->InitLocalDriveList(NULL);
-	pFileWindow->InitFileFilterList( GetComposedFileFilter(), m_nFilterIndexPannel, CallbackFilterIndexPannel );
+	pFileWindow->InitFileFilterList( GetComposedFileFilter(), m_nFilterIndexPanel, CallbackFilterIndexPanel );
 	pFileWindow->InitProjectWorkspace();
 
 	// File window browsing directory & current working directory

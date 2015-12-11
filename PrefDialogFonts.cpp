@@ -6,12 +6,12 @@
 void CPreferenceDialog::InitFontsPage()
 {
 	CString szText( (LPCTSTR)IDS_PREF_SCREEN_FONTS );
-	m_tabFontsPannel.InsertItem( FONTS_PANNEL_SCREEN,  szText, 0 );
+	m_tabFontsPanel.InsertItem( FONTS_PANEL_SCREEN,  szText, 0 );
 	szText.LoadString( IDS_PREF_PRINTER_FONTS );
-	m_tabFontsPannel.InsertItem( FONTS_PANNEL_PRINTER, szText, 0 );
+	m_tabFontsPanel.InsertItem( FONTS_PANEL_PRINTER, szText, 0 );
 	szText.LoadString( IDS_PREF_MISC_FONTS );
-	m_tabFontsPannel.InsertItem( FONTS_PANNEL_MISC,    szText, 0 );
-	m_tabFontsPannel.SetCurSel( m_nActiveFontsPannel );
+	m_tabFontsPanel.InsertItem( FONTS_PANEL_MISC,    szText, 0 );
+	m_tabFontsPanel.SetCurSel( m_nActiveFontsPanel );
 
 	m_lstScreenFonts.SetExtendedStyle( LVS_EX_FULLROWSELECT );
 	szText.LoadString( IDS_PREF_FONTS_AREA );
@@ -42,7 +42,7 @@ void CPreferenceDialog::SizeFontsPage()
 {
 	INT nPosY;
 
-	nPosY  =  26; m_tabFontsPannel.MoveWindow(170, nPosY, 360, 200);
+	nPosY  =  26; m_tabFontsPanel.MoveWindow(170, nPosY, 360, 200);
 
 	nPosY  =  66; m_lstScreenFonts.MoveWindow(180, nPosY, 320, 120);
 	nPosY += 130; m_stcScreenFonts.MoveWindow(185, nPosY, 300, 14);
@@ -57,15 +57,15 @@ void CPreferenceDialog::SizeFontsPage()
 void CPreferenceDialog::ShowFontsPage()
 {
 	INT nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS) ? SW_SHOW : SW_HIDE;
-	m_tabFontsPannel.ShowWindow(nCmdShow);
+	m_tabFontsPanel.ShowWindow(nCmdShow);
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPannel == 0) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPanel == 0) ? SW_SHOW : SW_HIDE;
 	m_stcScreenFonts.ShowWindow(nCmdShow);		m_lstScreenFonts.ShowWindow(nCmdShow);	
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPannel == 1) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPanel == 1) ? SW_SHOW : SW_HIDE;
 	m_stcPrinterFonts.ShowWindow(nCmdShow);		m_lstPrinterFonts.ShowWindow(nCmdShow);
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPannel == 2) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_FONTS && m_nActiveFontsPanel == 2) ? SW_SHOW : SW_HIDE;
 	m_stcMiscelFonts.ShowWindow(nCmdShow);		m_lstMiscelFonts.ShowWindow(nCmdShow);
 }
 
@@ -147,9 +147,9 @@ void CPreferenceDialog::DispMiscelFontText(INT nMiscelFont)
 	m_lstMiscelFonts.SetItemText(nMiscelFont, 2, szSize);
 }
 
-void CPreferenceDialog::OnSelchangeFontsPannel(NMHDR* pNMHDR, LRESULT* pResult) 
+void CPreferenceDialog::OnSelchangeFontsPanel(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	m_nActiveFontsPannel = m_tabFontsPannel.GetCurSel();
+	m_nActiveFontsPanel = m_tabFontsPanel.GetCurSel();
 	ShowProperPrefPages();
 	*pResult = 0;
 }

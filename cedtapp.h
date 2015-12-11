@@ -47,7 +47,7 @@ public: // global cursor resources
 public: // ftp accounts and file filters
 	static CFtpAccount m_clsFtpAccounts[MAX_FTP_ACCOUNT];
 	static CFileFilter m_clsFileFilters[MAX_FILE_FILTER];
-	static INT m_nFilterIndexDialog, m_nFilterIndexPannel;
+	static INT m_nFilterIndexDialog, m_nFilterIndexPanel;
 
 public: // html help initialization
 	static BOOL m_bHtmlHelpInitialized;
@@ -95,7 +95,7 @@ public: // *** cedtAppFilter.cpp ***
 
 protected:
 	static void CallbackFilterIndexDialog(INT nFilter);
-	static void CallbackFilterIndexPannel(INT nFilter);
+	static void CallbackFilterIndexPanel(INT nFilter);
 
 	static INT RecalcFilterIndexSkipNull(INT nFilter);
 	static INT RecalcFilterIndexCountAll(INT nFilter);

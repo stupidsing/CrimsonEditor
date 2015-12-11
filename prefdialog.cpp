@@ -14,12 +14,12 @@ static char THIS_FILE[] = __FILE__;
 
 INT CPreferenceDialog::m_nActiveCategory = PREF_CATEGORY_GENERAL;
 
-INT CPreferenceDialog::m_nActiveFontsPannel = FONTS_PANNEL_SCREEN;
+INT CPreferenceDialog::m_nActiveFontsPanel = FONTS_PANEL_SCREEN;
 INT CPreferenceDialog::m_nActiveScreenFont = 0;
 INT CPreferenceDialog::m_nActivePrinterFont = 0;
 INT CPreferenceDialog::m_nActiveMiscelFont = 0;
 
-INT CPreferenceDialog::m_nActiveColorsPannel = COLORS_PANNEL_GENERAL;
+INT CPreferenceDialog::m_nActiveColorsPanel = COLORS_PANEL_GENERAL;
 INT CPreferenceDialog::m_nActiveColorScheme = 0; // default color scheme
 
 CString CPreferenceDialog::m_szActiveAssocExtension = ""; // first extension in the registry
@@ -172,8 +172,8 @@ BEGIN_MESSAGE_MAP(CPreferenceDialog, CDialog)
 	ON_BN_CLICKED(IDC_STRING_COLOR, OnStringColor)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_MISCEL_FONTS, OnItemchangedMiscelFonts)
 	ON_NOTIFY(NM_DBLCLK, IDC_MISCEL_FONTS, OnDblclkMiscelFonts)
-	ON_NOTIFY(TCN_SELCHANGE, IDC_COLORS_PANNEL, OnSelchangeColorsPannel)
-	ON_NOTIFY(TCN_SELCHANGE, IDC_FONTS_PANNEL, OnSelchangeFontsPannel)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_COLORS_PANEL, OnSelchangeColorsPanel)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_FONTS_PANEL, OnSelchangeFontsPanel)
 	ON_EN_CHANGE(IDC_FILTER_DEFAULT_EXT, OnChangeFilterDefaultExt)
 	ON_BN_CLICKED(IDC_SAVE_COLOR_SCHEME, OnSaveColorScheme)
 	ON_CBN_SELCHANGE(IDC_COLOR_SCHEME_LIST, OnSelchangeColorSchemeList)
@@ -291,8 +291,8 @@ void CPreferenceDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_HIGHLIGHTED_COLOR_CAPTION, m_stcHighlightedColor);
 	DDX_Control(pDX, IDC_RANGE_BKGR_COLOR_CAPTION, m_stcRangeBkgrColor);
 	DDX_Control(pDX, IDC_LEFT_MARGIN_COLOR_CAPTION, m_stcLeftMarginColor);
-	DDX_Control(pDX, IDC_FONTS_PANNEL, m_tabFontsPannel);
-	DDX_Control(pDX, IDC_COLORS_PANNEL, m_tabColorsPannel);
+	DDX_Control(pDX, IDC_FONTS_PANEL, m_tabFontsPanel);
+	DDX_Control(pDX, IDC_COLORS_PANEL, m_tabColorsPanel);
 	DDX_Control(pDX, IDC_STRING_COLOR, m_btnStringColor);
 	DDX_Control(pDX, IDC_ITALICIZE_COMMENT, m_chkItalicizeComment);
 	DDX_Control(pDX, IDC_FILTER_EXTENSIONS_CAPTION, m_stcFilterExtensions);

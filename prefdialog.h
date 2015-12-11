@@ -24,13 +24,13 @@
 #define PREF_CATEGORY_COMMANDS		0x0C
 #define PREF_CATEGORY_MACROS		0x0D
 
-#define FONTS_PANNEL_SCREEN			0x00
-#define FONTS_PANNEL_PRINTER		0x01
-#define FONTS_PANNEL_MISC			0x02
+#define FONTS_PANEL_SCREEN			0x00
+#define FONTS_PANEL_PRINTER		0x01
+#define FONTS_PANEL_MISC			0x02
 
-#define COLORS_PANNEL_GENERAL		0x00
-#define COLORS_PANNEL_KEYWORD		0x01
-#define COLORS_PANNEL_MISC			0x02
+#define COLORS_PANEL_GENERAL		0x00
+#define COLORS_PANEL_KEYWORD		0x01
+#define COLORS_PANEL_MISC			0x02
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -131,8 +131,8 @@ public:
 	CStatic	m_stcHighlightedColor;
 	CStatic	m_stcRangeBkgrColor;
 	CStatic	m_stcLeftMarginColor;
-	CTabCtrl	m_tabFontsPannel;
-	CTabCtrl	m_tabColorsPannel;
+	CTabCtrl	m_tabFontsPanel;
+	CTabCtrl	m_tabColorsPanel;
 	CStatic	m_btnStringColor;
 	CButton	m_chkItalicizeComment;
 	CStatic	m_stcFilterExtensions;
@@ -303,7 +303,7 @@ public:
 public:
 	INT DoModal() { return CDialog::DoModal(); }
 	INT DoModal(INT nCategory) { m_nActiveCategory = nCategory; return CDialog::DoModal(); }
-	INT DoModal(INT nCategory, INT nFontsPannel) { m_nActiveCategory = nCategory; m_nActiveFontsPannel = nFontsPannel; return CDialog::DoModal(); }
+	INT DoModal(INT nCategory, INT nFontsPanel) { m_nActiveCategory = nCategory; m_nActiveFontsPanel = nFontsPanel; return CDialog::DoModal(); }
 
 protected:
 	CImageList m_lstButtonImage;
@@ -317,12 +317,12 @@ protected:
 	// fonts
 	LOGFONT m_lfScreen[10], m_lfPrinter[10], m_lfMiscel[10];
 	static INT m_nActiveScreenFont, m_nActivePrinterFont, m_nActiveMiscelFont;
-	static INT m_nActiveFontsPannel;
+	static INT m_nActiveFontsPanel;
 
 	// colors
 	COLORREF m_crBkgrColor[10];
 	COLORREF m_crTextColor[40];
-	static INT m_nActiveColorsPannel;
+	static INT m_nActiveColorsPanel;
 	static INT m_nActiveColorScheme;
 
 	// file associations
@@ -649,8 +649,8 @@ protected: // *** PrefDialogMacros.cpp
 	afx_msg void OnStringColor();
 	afx_msg void OnItemchangedMiscelFonts(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDblclkMiscelFonts(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnSelchangeColorsPannel(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg void OnSelchangeFontsPannel(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnSelchangeColorsPanel(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnSelchangeFontsPanel(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnChangeFilterDefaultExt();
 	afx_msg void OnSaveColorScheme();
 	afx_msg void OnSelchangeColorSchemeList();

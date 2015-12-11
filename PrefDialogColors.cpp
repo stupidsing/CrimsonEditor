@@ -7,12 +7,12 @@
 void CPreferenceDialog::InitColorsPage()
 {
 	CString szText( (LPCTSTR)IDS_PREF_GENERAL_COLORS );
-	m_tabColorsPannel.InsertItem(COLORS_PANNEL_GENERAL, szText, 0);
+	m_tabColorsPanel.InsertItem(COLORS_PANEL_GENERAL, szText, 0);
 	szText.LoadString( IDS_PREF_KEYWORD_COLORS );
-	m_tabColorsPannel.InsertItem(COLORS_PANNEL_KEYWORD, szText, 0);
+	m_tabColorsPanel.InsertItem(COLORS_PANEL_KEYWORD, szText, 0);
 	szText.LoadString( IDS_PREF_MISC_COLORS );
-	m_tabColorsPannel.InsertItem(COLORS_PANNEL_MISC,    szText,  0);
-	m_tabColorsPannel.SetCurSel( m_nActiveColorsPannel );
+	m_tabColorsPanel.InsertItem(COLORS_PANEL_MISC,    szText,  0);
+	m_tabColorsPanel.SetCurSel( m_nActiveColorsPanel );
 
 //	following color scheme codes are added in resource file
 //	m_cmbColorSchemeList.InsertString(0, "default color scheme");
@@ -28,7 +28,7 @@ void CPreferenceDialog::SizeColorsPage()
 {
 	INT nPosY;
 
-	nPosY  =  26; m_tabColorsPannel.MoveWindow(170, nPosY, 360, 200);
+	nPosY  =  26; m_tabColorsPanel.MoveWindow(170, nPosY, 360, 200);
 
 	nPosY  =  66; m_stcBackgroundColor.MoveWindow(180, nPosY, 300, 14);
 	nPosY +=  22; m_btnBackgroundColor.MoveWindow(180, nPosY-3, 140, 18);	m_btnActiveLineColor.MoveWindow(360, nPosY-3, 140, 18);
@@ -62,10 +62,10 @@ void CPreferenceDialog::ShowColorsPage()
 {
 	INT nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS) ? SW_SHOW : SW_HIDE;
 
-	m_tabColorsPannel.ShowWindow(nCmdShow);
-	INT nColorsPannel = m_tabColorsPannel.GetCurSel();
+	m_tabColorsPanel.ShowWindow(nCmdShow);
+	INT nColorsPanel = m_tabColorsPanel.GetCurSel();
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPannel == 0) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPanel == 0) ? SW_SHOW : SW_HIDE;
 	m_stcBackgroundColor.ShowWindow(nCmdShow);
 	m_btnBackgroundColor.ShowWindow(nCmdShow);	
 	m_btnActiveLineColor.ShowWindow(nCmdShow);
@@ -74,7 +74,7 @@ void CPreferenceDialog::ShowColorsPage()
 	m_btnCommentColor.ShowWindow(nCmdShow);		m_btnStringColor.ShowWindow(nCmdShow);
 	m_btnDelimiterColor.ShowWindow(nCmdShow);	m_btnVariableColor.ShowWindow(nCmdShow);
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPannel == 1) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPanel == 1) ? SW_SHOW : SW_HIDE;
 	m_stcKeywordColor.ShowWindow(nCmdShow);
 	m_btnKeyword0Color.ShowWindow(nCmdShow);	m_btnKeyword1Color.ShowWindow(nCmdShow);
 	m_btnKeyword2Color.ShowWindow(nCmdShow);	m_btnKeyword3Color.ShowWindow(nCmdShow);
@@ -82,7 +82,7 @@ void CPreferenceDialog::ShowColorsPage()
 	m_btnKeyword6Color.ShowWindow(nCmdShow);	m_btnKeyword7Color.ShowWindow(nCmdShow);
 	m_btnKeyword8Color.ShowWindow(nCmdShow);	m_btnKeyword9Color.ShowWindow(nCmdShow);
 
-	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPannel == 2) ? SW_SHOW : SW_HIDE;
+	nCmdShow = (m_nActiveCategory == PREF_CATEGORY_COLORS && nColorsPanel == 2) ? SW_SHOW : SW_HIDE;
 	m_stcLeftMarginColor.ShowWindow(nCmdShow);
 	m_btnLeftMarginColor.ShowWindow(nCmdShow);	m_btnLineNumberColor.ShowWindow(nCmdShow);
 	m_stcRangeBkgrColor.ShowWindow(nCmdShow);
@@ -327,9 +327,9 @@ BOOL CPreferenceDialog::SaveColorScheme(LPCTSTR lpszPathName)
 	return TRUE;
 }
 
-void CPreferenceDialog::OnSelchangeColorsPannel(NMHDR* pNMHDR, LRESULT* pResult) 
+void CPreferenceDialog::OnSelchangeColorsPanel(NMHDR* pNMHDR, LRESULT* pResult) 
 {
-	m_nActiveColorsPannel = m_tabColorsPannel.GetCurSel();
+	m_nActiveColorsPanel = m_tabColorsPanel.GetCurSel();
 	ShowProperPrefPages();
 	*pResult = 0;
 }

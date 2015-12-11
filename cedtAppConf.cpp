@@ -327,7 +327,7 @@ void CCedtApp::SetDefaultConfiguration()
 	}
 
 	CCedtApp::m_nFilterIndexDialog = 0;
-	CCedtApp::m_nFilterIndexPannel = 0;
+	CCedtApp::m_nFilterIndexPanel = 0;
 }
 
 
@@ -521,7 +521,7 @@ BOOL CCedtApp::LoadUserConfiguration()
 	}
 
 	fin.read((char *)(& CCedtApp::m_nFilterIndexDialog), sizeof(INT));
-	fin.read((char *)(& CCedtApp::m_nFilterIndexPannel), sizeof(INT));
+	fin.read((char *)(& CCedtApp::m_nFilterIndexPanel), sizeof(INT));
 
 	if( fin.peek() != EOF ) { fin.close(); return FALSE; }
 
@@ -643,7 +643,7 @@ BOOL CCedtApp::SaveUserConfiguration()
 	}
 
 	fout.write((const char *)(& CCedtApp::m_nFilterIndexDialog), sizeof(INT));
-	fout.write((const char *)(& CCedtApp::m_nFilterIndexPannel), sizeof(INT));
+	fout.write((const char *)(& CCedtApp::m_nFilterIndexPanel), sizeof(INT));
 
 	fout.close();
 	return TRUE;
