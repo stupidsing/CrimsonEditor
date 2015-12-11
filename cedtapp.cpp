@@ -217,8 +217,9 @@ BOOL CCedtApp::InitInstance()
 
 	// read InstallDir from the registry
 	if( ! GetRegKeyValue(HKEY_LOCAL_MACHINE, REGPATH_INSTALL_DIRECTORY, "InstallDir", m_szInstallDirectory) ) {
-		CString szMessage; szMessage.Format(IDS_ERR_REGISTRY, REGPATH_INSTALL_DIRECTORY);
-		AfxMessageBox(szMessage, MB_OK | MB_ICONSTOP); return FALSE;
+		//CString szMessage; szMessage.Format(IDS_ERR_REGISTRY, REGPATH_INSTALL_DIRECTORY);
+		//AfxMessageBox(szMessage, MB_OK | MB_ICONSTOP); return FALSE;
+		m_szInstallDirectory = getenv("APPDATA") + CString("\\Crimson Editor");
 	}
 
 	// get current working directory
