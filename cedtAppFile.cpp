@@ -16,8 +16,22 @@ void CCedtApp::OnFileOpen()
 		GetCurrentDirectory( MAX_PATH, szCurrentDirectory );
 
 		TCHAR szBuffer[4096]; memset(szBuffer, 0x00, sizeof(szBuffer));
-		dlg.m_ofn.lpstrFile = szBuffer; dlg.m_ofn.nMaxFile = 4096; 
-		dlg.m_ofn.lpstrInitialDir = szCurrentDirectory;
+		dlg.m_ofn.lpstrFile = szBuffer; dlg.m_ofn.nMaxFile = 4096;
+
+		// get active document
+		CMainFrame * pMainFrame = (CMainFrame *)AfxGetMainWnd(); ASSERT( pMainFrame );
+		CCedtDoc * pDoc = (CCedtDoc *)pMainFrame->MDIGetActiveDocument();
+		CString szFile;
+
+		// if such exists, and if it has a path, use that as default
+		if (pDoc != NULL) {
+			szFile = pDoc->GetPathName();
+			if (szFile.GetLength() > 0) {
+				szFile = GetFileDirectory(szFile);
+				dlg.m_ofn.lpstrInitialDir = szFile;
+			}
+		}
+
 		dlg.m_ofn.nFilterIndex = GetFilterIndexDialog() + 1;
 		if( dlg.DoModal() != IDOK ) return;
 
