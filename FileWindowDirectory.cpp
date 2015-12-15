@@ -57,6 +57,14 @@ BOOL CFileWindow::InitFileFilterList(LPCTSTR lpszComposedFilter, INT nInitialFil
 	return TRUE;
 }
 
+BOOL CFileWindow::FocusBrowsingDirectoryTo(LPCTSTR lpszDirectory)
+{
+	BOOL b = SetBrowsingDirectory( lpszDirectory );
+	m_treDirectoryTree.SetFocus();
+
+	return b;
+}
+
 BOOL CFileWindow::GetBrowsingDirectory(CString & szDirectory)
 {
 	HTREEITEM hItem = m_treDirectoryTree.GetSelectedItem();

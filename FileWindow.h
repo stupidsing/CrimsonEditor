@@ -92,6 +92,7 @@ public: // *** FileWindowDirectory.cpp ***
 	BOOL InitLocalDriveList(LPCTSTR lpszInitialDriveName);
 	BOOL InitFileFilterList(LPCTSTR lpszComposedFilter, INT nInitialFilter, CALLBACK_SELCHANGE fcnCallback = NULL);
 
+	BOOL FocusBrowsingDirectoryTo(LPCTSTR lpszDirectory);
 	BOOL GetBrowsingDirectory(CString & szDirectory);
 	BOOL SetBrowsingDirectory(LPCTSTR lpszDirectory);
 

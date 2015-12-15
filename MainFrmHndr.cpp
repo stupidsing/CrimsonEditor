@@ -17,6 +17,11 @@ void CMainFrame::OnUpdateViewFileTab(CCmdUI* pCmdUI)
 void CMainFrame::OnViewDirectory() 
 {
 	ToggleFileWindowCategory( FILE_WINDOW_DIRECTORY );
+
+	BOOL bVisible = m_wndFileTab.IsWindowVisible();
+	if ( bVisible ) {
+		OnFileWindowSync();
+	}
 }
 
 void CMainFrame::OnUpdateViewDirectory(CCmdUI* pCmdUI) 
@@ -85,7 +90,7 @@ void CMainFrame::OnFileWindowSync()
 
 	if( ! pDoc->IsRemoteFile() && ! pDoc->IsNewFileNotSaved() ) {
 		CString szPathName = pDoc->GetPathName();
-		m_wndFileWindow.SetBrowsingDirectory( szPathName );
+		m_wndFileWindow.FocusBrowsingDirectoryTo( szPathName );
 	}
 }
 

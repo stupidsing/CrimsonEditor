@@ -228,10 +228,9 @@ void CMainFrame::ShowFileWindowCategory(INT nCategory)
 	INT nActivCat = m_wndFileWindow.GetActiveCategory();
 	BOOL bVisible = m_wndFileWindow.IsWindowVisible();
 
-	if( nActivCat == nCategory ) {
-		if( ! bVisible ) ShowControlBar( & m_wndFileWindow, TRUE, FALSE );
-	} else {
-		if( ! bVisible ) ShowControlBar( & m_wndFileWindow, TRUE, FALSE );
+	if( ! bVisible ) ShowControlBar( & m_wndFileWindow, TRUE, FALSE );
+
+	if( nActivCat != nCategory ) {
 		m_wndFileWindow.SetActiveCategory( nCategory );
 	}
 }
@@ -247,6 +246,8 @@ void CMainFrame::ToggleFileWindowCategory(INT nCategory)
 		if( ! bVisible ) ShowControlBar( & m_wndFileWindow, TRUE, FALSE );
 		m_wndFileWindow.SetActiveCategory( nCategory );
 	}
+
+	bVisible = m_wndFileWindow.IsWindowVisible();
 }
 
 
