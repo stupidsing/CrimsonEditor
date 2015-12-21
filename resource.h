@@ -560,6 +560,7 @@
 #define ID_FILE_OPEN_TEMPLATE           40006
 #define ID_FILE_CLOSE_ALL               40007
 #define ID_FILE_RELOAD_AS               40008
+#define ID_FILE_COPY_PATH               40009
 #define ID_EDIT_DELETE                  41000
 #define ID_EDIT_CUT_APPEND              41001
 #define ID_EDIT_COPY_APPEND             41002

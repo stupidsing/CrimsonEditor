@@ -224,6 +224,7 @@ public: // *** cedtAppConf.cpp ***
 	afx_msg void OnFileFtpSettings();
 	afx_msg void OnFileOpenRemote();
 	afx_msg void OnFileOpenTemplate();
+	afx_msg void OnFileCopyPath();
 	afx_msg void OnViewSetLineSpacing();
 	afx_msg void OnViewSetTabSize();
 	afx_msg void OnFileCloseAll();

@@ -45,6 +45,32 @@ void CCedtApp::OnFileOpen()
 	}
 }
 
+void CCedtApp::OnFileCopyPath() 
+{
+	CMainFrame * pMainFrame = (CMainFrame *)AfxGetMainWnd(); ASSERT( pMainFrame );
+	CCedtDoc * pDoc = (CCedtDoc *)pMainFrame->MDIGetActiveDocument();
+	CString szFile;
+
+	// if such exists, and if it has a path, use that as default
+	if (pDoc != NULL) {
+		szFile = pDoc->GetPathName();
+		if (szFile.GetLength() > 0) {
+			CWnd * pWnd = AfxGetMainWnd();
+			::OpenClipboard( pWnd->m_hWnd );
+			::EmptyClipboard();
+
+			int size = szFile.GetLength() + 1;
+			HGLOBAL hMemory = ::GlobalAlloc(GMEM_MOVEABLE | GMEM_DDESHARE, size);
+			void * pMemory = ::GlobalLock(hMemory);
+			strcpy( (char *) pMemory, (const char *)szFile );
+			::GlobalUnlock(hMemory);
+
+			::SetClipboardData(CF_TEXT, hMemory);
+			::CloseClipboard();
+		}
+	}
+}
+
 void CCedtApp::OnFileOpenTemplate() 
 {
 	DWORD dwFlags = OFN_HIDEREADONLY | OFN_FILEMUSTEXIST;

@@ -308,6 +308,7 @@ BEGIN
         MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
         MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
         MENUITEM "Open &Template...\tAlt+Shift+O", ID_FILE_OPEN_TEMPLATE
+        MENUITEM "Copy Pat&h",                  ID_FILE_COPY_PATH
         MENUITEM SEPARATOR
         MENUITEM "&Close\tCtrl+F4",             ID_FILE_CLOSE
         MENUITEM "Clos&e All",                  ID_FILE_CLOSE_ALL
