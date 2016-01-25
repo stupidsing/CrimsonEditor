@@ -480,6 +480,7 @@ BOOL CAnalyzedText::FileLoad(LPCTSTR lpszPathName, INT nEncodingType, INT nFileF
 		CHAR szBuffer[FILE_READ_BUFFER_SIZE + 1]; UCHAR szWideBuffer[2 * FILE_READ_BUFFER_SIZE + 2]; 
 		INT i, nCount, nTotal = 0; BOOL bDelimFound = FALSE;
 
+		/*
 		if( nEncodingType == ENCODING_TYPE_UNICODE_LE ) {
 			// extract byte-order mark
 			nCount = file.Read( szWideBuffer, 2 ); 
@@ -559,7 +560,8 @@ BOOL CAnalyzedText::FileLoad(LPCTSTR lpszPathName, INT nEncodingType, INT nFileF
 
 				file.Seek(nTotal, CFile::begin);
 			}
-		} else { /* nEncodingType == ENCODING_TYPE_ASCII */
+		} else
+		*/ { /* nEncodingType == ENCODING_TYPE_ASCII */
 			while( nCount = file.Read( szBuffer, FILE_READ_BUFFER_SIZE ) ) { // read file contents
 				for( bDelimFound = FALSE, i = 0; i <= nCount-1; i++ ) { 
 					if( szBuffer[i] == chDelim ) { bDelimFound = TRUE; i++; break; } 
@@ -601,6 +603,7 @@ BOOL CAnalyzedText::FileSave(LPCTSTR lpszPathName, INT nEncodingType, INT nFileF
 		INT nCount, nBufferSize = 0; CHAR * pBuffer = NULL;
 		UCHAR szWideDelim[4], * pWideBuffer = NULL;
 
+		/*
 		if( nEncodingType == ENCODING_TYPE_UNICODE_LE ) {
 			// write byte-order mark
 			file.Write("\xFF\xFE", 2); 
@@ -667,7 +670,8 @@ BOOL CAnalyzedText::FileSave(LPCTSTR lpszPathName, INT nEncodingType, INT nFileF
 				file.Write( pBuffer, nLength );
 				if( pos ) file.Write( szDelim, nDelimSize );
 			}
-		} else { /* nEncodingType == ENCODING_TYPE_ASCII */
+		} else*/
+		{ /* nEncodingType == ENCODING_TYPE_ASCII */
 			while( pos ) {
 				CAnalyzedString & rLine = GetNext(pos);
 				INT nLength = rLine.GetLength();
