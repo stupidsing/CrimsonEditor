@@ -299,7 +299,7 @@ BOOL CCedtApp::InitInstance()
 	LoadMacroBuffers(m_szInstallDirectory + "\\cedt.mac");
 
 //	SetRegistryKey(STRING_COMPANYNAME); // Change the registry key under which our settings are stored.
-	LoadStdProfileSettings(8);  // Load standard INI file options (including MRU)
+	LoadStdProfileSettings(32);  // Load standard INI file options (including MRU)
 
 	// Register the application's document templates.  Document templates
 	//  serve as the connection between documents, frame windows and views.
