@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "cedtHeader.h"
 #include "resource.h"
 #include "FindInFilesDialog.h"
 #include "FolderDialog.h"
@@ -115,7 +116,22 @@ BOOL CFindInFilesDialog::OnInitDialog()
 	POSITION pos3 = m_lstFolder.GetHeadPosition();
 	while( pos3 ) m_cmbFolder.AddString( m_lstFolder.GetNext(pos3) );
 
+	// get active document
+	CMainFrame * pMainFrame = (CMainFrame *)AfxGetMainWnd(); ASSERT( pMainFrame );
+	CCedtDoc * pDoc = (CCedtDoc *)pMainFrame->MDIGetActiveDocument();
+	CString szFile;
+
+	// if such exists, and if it has a path, use that as default
+	if (pDoc != NULL) {
+		szFile = pDoc->GetPathName();
+		if (szFile.GetLength() > 0) {
+			szFile = GetFileDirectory(szFile);
+			m_szFolder = szFile;
+		}
+	}
+
 	if( ! m_szFolder.GetLength() ) m_szFolder = szCurrentDirectory;
+
 	m_cmbFolder.SetWindowText( m_szFolder );
 
 	return TRUE;
